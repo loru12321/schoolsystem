@@ -6,16 +6,24 @@
     <title>School System</title>
     <link rel="stylesheet" href="styles.css">
     
+    <!-- 0. Init Scripts -->
+    <script src="js/supabase-init.js"></script>
+
+    <!-- 1. CDN Dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" crossorigin="anonymous" onload="window.initSupabase()"></script>
     <script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/idb-keyval@6/dist/iife/index-min.js" crossorigin="anonymous"></script>
+    <!-- Use jsdelivr for idb-keyval to avoid unpkg 404/CORS issues -->
+    <script src="https://cdn.jsdelivr.net/npm/idb-keyval@6/dist/iife/index-min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js" defer crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer crossorigin="anonymous"></script>
     
-    <script src="js/supabase-init.js"></script>
+    <!-- 2. App Scripts (Deferred) -->
+    <script defer src='js/app-core-part1.js'></script>
+    <script defer src='js/app-state-vars.js'></script>
+    <script defer src='js/app-utils.js'></script>
+    <script defer src='js/project-snapshot.js'></script>
     <script defer src='js/account-admin.js'></script>
     <script defer src='js/admin-runtime.js'></script>
     <script defer src='js/ai-chat.js'></script>
@@ -23,10 +31,7 @@
     <script defer src='js/ai-report-tools.js'></script>
     <script defer src='js/analysis-extensions.js'></script>
     <script defer src='js/analysis-tools.js'></script>
-    <script defer src='js/app-core-part1.js'></script>
     <script defer src='js/app-runtime-core.js'></script>
-    <script defer src='js/app-state-vars.js'></script>
-    <script defer src='js/app-utils.js'></script>
     <script defer src='js/auth-issues.js'></script>
     <script defer src='js/batch-ai-comments.js'></script>
     <script defer src='js/cloud-manager.js'></script>
@@ -49,7 +54,6 @@
     <script defer src='js/poster-tools.js'></script>
     <script defer src='js/privacy-guest-mode.js'></script>
     <script defer src='js/progress-analysis.js'></script>
-    <script defer src='js/project-snapshot.js'></script>
     <script defer src='js/report-card.js'></script>
     <script defer src='js/report-exports.js'></script>
     <script defer src='js/role-status.js'></script>
@@ -65,6 +69,9 @@
     <script defer src='js/table-visuals.js'></script>
     <script defer src='js/teacher-analysis.js'></script>
     <script defer src='js/worker-source.js'></script>
+
+    <!-- 3. Alpine.js (Last to ensure stores are registered) -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer crossorigin="anonymous"></script>
 </head>
 <body>
 

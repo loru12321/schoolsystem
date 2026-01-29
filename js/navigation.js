@@ -206,8 +206,13 @@ function switchTab(id) {
     if (!__guardBypass && !guardBeforeSwitch(id)) return;
     if (__guardBypass) __guardBypass = false;
     // 1. 切换内容区域显示
+    const targetSection = document.getElementById(id);
+    if (!targetSection) {
+        console.warn('[switchTab] 未找到 section:', id);
+        return;
+    }
     document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+    targetSection.classList.add('active');
     
     // 2. 定位所属大类
     let foundCategory = null;

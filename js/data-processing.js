@@ -1,5 +1,6 @@
 // ================= 数据处理 =================
-document.getElementById('fileInput').addEventListener('change', function(e) {
+const fileInputEl = document.getElementById('fileInput');
+if (fileInputEl) fileInputEl.addEventListener('change', function(e) {
     if (isArchiveLocked()) return alert("⛔ 当前考试已封存，禁止上传新数据");
     if (!CURRENT_COHORT_ID) return alert("请先选择或新建届别");
     if (!CURRENT_EXAM_ID) {
@@ -49,6 +50,7 @@ document.getElementById('fileInput').addEventListener('change', function(e) {
         updateStatusPanel();
     }, "正在解析 Excel 并计算排名...");
 });
+else console.warn('[data-processing] 未找到 fileInput，已跳过绑定。');
 
 async function readExcel(file) {
     const data = await file.arrayBuffer();

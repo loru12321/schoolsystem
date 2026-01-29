@@ -362,8 +362,10 @@ window.addEventListener('load', async () => {
                 if(backup.HISTORY_ARCHIVE) HISTORY_ARCHIVE = backup.HISTORY_ARCHIVE;
                 
                 // 刷新界面
-                document.getElementById('mode-mask').style.display = 'none';
-                document.getElementById('app').classList.remove('hidden');
+                const modeMask = document.getElementById('mode-mask');
+                const appRoot = document.getElementById('app');
+                if (modeMask) modeMask.style.display = 'none';
+                if (appRoot) appRoot.classList.remove('hidden');
                 
                 if(CONFIG.name) {
                     document.getElementById('mode-badge').innerText = CONFIG.name;
@@ -394,7 +396,8 @@ window.addEventListener('load', async () => {
         } 
         else {
             // 无数据，显示初始模式选择
-            document.getElementById('mode-mask').style.display = 'flex';
+            const modeMask = document.getElementById('mode-mask');
+            if (modeMask) modeMask.style.display = 'flex';
         }
     }
 });

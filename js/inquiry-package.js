@@ -239,29 +239,26 @@ function generateInquiryPackage() {
             if (!IS_SINGLE_SCHOOL) totalRankHtml += '<div class="rank-item"><div class="rank-val">' + res.tr + '</div><div class="rank-lbl">镇排</div></div>';
 
             // 注意：Canvas 需要固定高度
-            const chartsHtml = `
-                <div class="comment-box">
-                    <div class="comment-title">👩‍🏫 班主任评语</div>
-                    <div class="comment-text">${res.cm || '暂无评语'}</div>
-                </div>
-                
-                <div class="chart-box">
-                    <div class="chart-title">📊 学科能力分布 (雷达图)</div>
-                    <div style="height:200px; position:relative;">
-                        <canvas id="mobRadarChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="chart-box">
-                    <div class="chart-title">⚖️ 学科均衡度诊断 (标准分)</div>
-                    <div style="height:200px; position:relative;">
-                        <canvas id="mobVarChart"></canvas>
-                    </div>
-                    <div style="font-size:10px; color:#999; text-align:center; margin-top:5px;">
-                        注: 柱子朝上为优势科目，朝下为弱势科目
-                    </div>
-                </div>
-            `;
+            const chartsHtml =
+                '<div class="comment-box">' +
+                    '<div class="comment-title">👩‍🏫 班主任评语</div>' +
+                    '<div class="comment-text">' + (res.cm || '暂无评语') + '</div>' +
+                '</div>' +
+                '<div class="chart-box">' +
+                    '<div class="chart-title">📊 学科能力分布 (雷达图)</div>' +
+                    '<div style="height:200px; position:relative;">' +
+                        '<canvas id="mobRadarChart"></canvas>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="chart-box">' +
+                    '<div class="chart-title">⚖️ 学科均衡度诊断 (标准分)</div>' +
+                    '<div style="height:200px; position:relative;">' +
+                        '<canvas id="mobVarChart"></canvas>' +
+                    '</div>' +
+                    '<div style="font-size:10px; color:#999; text-align:center; margin-top:5px;">' +
+                        '注: 柱子朝上为优势科目，朝下为弱势科目' +
+                    '</div>' +
+                '</div>';
 
             resBox.innerHTML = 
                 '<div class="score-card">' +
@@ -273,6 +270,7 @@ function generateInquiryPackage() {
                     '<div class="rank-bar">' + totalRankHtml + '</div>' +
                     '<div class="sub-grid">' + subHtml + '</div>' +
                 '</div>' + 
+                chartsHtml +
                 '<div style="text-align:center; color:green; font-size:12px; margin-top:10px;">✅ 查询成功</div>';
             
             resBox.style.display = 'block';

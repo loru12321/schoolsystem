@@ -21,7 +21,12 @@ window.onerror = function (msg, url, lineNo, columnNo, error) {
             cancelButtonColor: '#d33'
         }).then((result) => {
             if (result.isDismissed) { // 用户点击了“清空缓存”
-                idbKeyval.del('autosave_backup').then(() => location.reload());
+                if (window.idbKeyval) {
+                    idbKeyval.del('autosave_backup').then(() => location.reload());
+                } else {
+                    localStorage.removeItem('autosave_backup');
+                    location.reload();
+                }
             } else {
                 location.reload();
             }

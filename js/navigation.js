@@ -136,7 +136,8 @@ function renderNavigation() {
         if (item.id === 'report-generator' && !CONFIG.showQuery) return;
         const a = document.createElement('a');
         a.className = `nav-link`;
-        if(document.getElementById(item.id).classList.contains('active')) a.classList.add('active');
+        const itemEl = document.getElementById(item.id);
+        if(itemEl && itemEl.classList.contains('active')) a.classList.add('active');
         a.innerHTML = `<i class="ti ${item.icon}"></i> ${item.text}`;
         a.onclick = () => switchTab(item.id);
         subContainer.appendChild(a);

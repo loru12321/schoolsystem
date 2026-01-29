@@ -12,8 +12,8 @@
     <!-- 1. CDN Dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" crossorigin="anonymous" onload="window.initSupabase()"></script>
     <script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js" crossorigin="anonymous"></script>
-    <!-- Use unpkg for idb-keyval (v6.2.1) -->
-    <script src="https://unpkg.com/idb-keyval@6.2.1/dist/iife/index-min.js" crossorigin="anonymous"></script>
+    <!-- Use local idb-keyval to avoid CDN/CORS issues -->
+    <script src="js/idb-keyval.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js" defer crossorigin="anonymous"></script>
